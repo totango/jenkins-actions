@@ -18,24 +18,24 @@ jobs:
       - name: Execute without parameters and trailing slash
         uses: ./
         with:
-          jobUrl: https://ci.leanix.net/job/Ping/
+          jobUrl: https://ci.leanix.net/job/Ping/buildWithParameters/
 
       - name: Execute without parameters and no trailing slash
         uses: ./
         with:
-          jobUrl: https://ci.leanix.net/job/Ping
+          jobUrl: https://ci.leanix.net/job/Ping/buildWithParameters
 
       - name: Execute with one parameter
         uses: ./
         with:
-          jobUrl: https://ci.leanix.net/job/Ping
+          jobUrl: https://ci.leanix.net/job/Ping/buildWithParameters
           parameters: |
             SLEEP_FIVE_SECONDS=true
 
       - name: Execute with two parameters
         uses: ./
         with:
-          jobUrl: https://ci.leanix.net/job/Ping
+          jobUrl: https://ci.leanix.net/job/Ping/buildWithParameters
           parameters: |
             SLEEP_FIVE_SECONDS=true
             MESSAGE=Foo

@@ -123,13 +123,12 @@ const axios = __webpack_require__(900)
 // External input
 const username = process.env.JENKINS_USER
 const apitoken = process.env.JENKINS_TOKEN
-const jobUrl = `${core.getInput('jobUrl')}`
 const parameters = `${core.getInput('parameters')}`
+var jobBuildUrl = `${core.getInput('jobUrl')}`
 
 // Prepare call
-var jobUrlBuildTrigger = `${jobUrl.replace(/\/$/, "")}/buildWithParameters`
 if ( parameters !== "" ) {
-    jobUrlBuildTrigger = `${jobUrlBuildTrigger}?${parameters.replace("\n", "&")}`
+    jobBuildUrl = `${jobBuildUrl}?${parameters.replace("\n", "&")}`
 }
 const basicAuth = {
     username: username,

@@ -1,8 +1,8 @@
 name: "LeanIX jenkins"
 description: "Trigger Jenkins jobs"
 inputs:
-  jobUrl:
-    description: 'URL of job to be triggered'
+  jobBuildUrl:
+    description: 'URL of job to be triggered (make sure to include /build or /buildWithParameters depending on your needs)'
     required: true
   parameters:
     description: 'Job parameters'
