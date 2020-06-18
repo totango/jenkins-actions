@@ -25,17 +25,17 @@ jobs:
         with:
           jobUrl: https://ci.leanix.net/job/Ping
 
-      - name: Execute with one parameter
-        uses: ./
-        with:
-          jobUrl: https://ci.leanix.net/job/Ping
-          parameters: |
-            SLEEP_FIVE_SECONDS=true
+      # - name: Execute with one parameter
+      #   uses: ./
+      #   with:
+      #     jobUrl: https://ci.leanix.net/job/Ping
+      #     parameters: |
+      #       SLEEP_FIVE_SECONDS=true
 
-      - name: Execute with two parameters
-        uses: ./
-        with:
-          jobUrl: https://ci.leanix.net/job/Ping
-          parameters: |
-            SLEEP_FIVE_SECONDS=true
-            MESSAGE=Foo
+      # - name: Execute with two parameters
+      #   uses: ./
+      #   with:
+      #     jobUrl: https://ci.leanix.net/job/Ping
+      #     parameters: |
+      #       SLEEP_FIVE_SECONDS=true
+      #       MESSAGE=Foo
