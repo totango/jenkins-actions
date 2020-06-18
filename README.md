@@ -20,3 +20,4 @@ As a prerequisite you need to have two environment variables available:
 ## Copyright and license
 
 Copyright 2020 LeanIX GmbH under the [Unlicense license](LICENSE).
+
