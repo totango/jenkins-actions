@@ -3,7 +3,7 @@ name: jenkins-action
 on: [push]
 
 jobs:
-  test:
+  main:
     name: jenkins-action
     runs-on: ubuntu-latest
     steps:
