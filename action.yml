@@ -1,0 +1,9 @@
+name: "LeanIX jenkins"
+description: "Trigger Jenkins jobs"
+inputs:
+  jobUrl:
+    description: 'URL of job to be triggered'
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"

@@ -1,0 +1,21 @@
+{
+  "name": "jenkins-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leanix/jenkins-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "homepage": "https://github.com/leanix/jenkins-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1",
+    "@azure/identity": "^1.0.2",
+    "@azure/keyvault-secrets": "^4.0.2",
+    "axios": "^0.19.2"
+  }
+}

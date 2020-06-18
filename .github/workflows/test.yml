@@ -1,0 +1,41 @@
+name: jenkins-action
+
+on: [push]
+
+jobs:
+  test:
+    name: jenkins-action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get credentials
+        uses: leanix/secrets-action@master
+        with:
+          secret-store-credentials: ${{ secrets.INJECTED_SECRET_STORE_CREDENTIALS }}
+
+      - name: Execute without parameters and trailing slash
+        uses: ./
+        with:
+          jobUrl: https://ci.leanix.net/job/Ping/
+
+      - name: Execute without parameters and no trailing slash
+        uses: ./
+        with:
+          jobUrl: https://ci.leanix.net/job/Ping
+
+      - name: Execute with one parameter
+        uses: ./
+        with:
+          jobUrl: https://ci.leanix.net/job/Ping
+          parameters: |
+            SLEEP_FIVE_SECONDS=true
+
+      - name: Execute with two parameters
+        uses: ./
+        with:
+          jobUrl: https://ci.leanix.net/job/Ping
+          parameters: |
+            SLEEP_FIVE_SECONDS=true
+            MESSAGE=Foo
