@@ -4,6 +4,9 @@ inputs:
   jobUrl:
     description: 'URL of job to be triggered'
     required: true
+  parameters:
+    description: 'Job parameters'
+    required: false
 runs:
   using: "node12"
   main: "dist/index.js"
