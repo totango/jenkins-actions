@@ -5,7 +5,8 @@ const axios = require('axios')
 const username = process.env.JENKINS_USER
 const apitoken = process.env.JENKINS_TOKEN
 const jobUrl = `${core.getInput('jobUrl')}`;
-// const parameters = `${core.getInput('parameters')}`;
+const parameters = `${core.getInput('parameters')}`;
+core.info(parameters);
 
 // Prepare call
 const jobUrlBuildTrigger = `${jobUrl.replace(/\/$/, "")}/buildWithParameters`
