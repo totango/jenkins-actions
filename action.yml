@@ -5,8 +5,12 @@ inputs:
     description: 'URL of job to be triggered (make sure to include /build or /buildWithParameters depending on your needs)'
     required: true
   parameters:
-    description: 'Job parameters'
+    description: 'Job parameters (need to be defined as multi-line strings)'
     required: false
+  waitForCompletion:
+    description: 'If true the action will wait for the job to complete'
+    required: false
+    default: "false"
 runs:
   using: "node12"
   main: "dist/index.js"

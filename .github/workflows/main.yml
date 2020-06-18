@@ -39,3 +39,11 @@ jobs:
           parameters: |
             SLEEP_FIVE_SECONDS=true
             MESSAGE=Foo
+
+      - name: Execute and wait for completion
+        uses: ./
+        with:
+          jobBuildUrl: https://ci.leanix.net/job/Ping/buildWithParameters
+          waitForCompletion: true
+          parameters: |
+            SLEEP_FIVE_SECONDS=false
