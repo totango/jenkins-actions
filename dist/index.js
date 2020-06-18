@@ -144,13 +144,13 @@ const poll = async ({ fn, validate, interval, maxAttempts }) => {
 
 function pollBuildStatus(queuedItemUrl) {
     core.info(`Polling status of job via ${queuedItemUrl}`)
-    // console.log(request)
     poll({
         fn: async () => {
             return axios.post(queuedItemUrl, {}, { auth: basicAuth })
           },
         validate: response => response.data.executable !== undefined,
         interval: 1000,
+        maxAttempts: 60
     })
         .then((response) => {
             core.info("Job successfully started.")
