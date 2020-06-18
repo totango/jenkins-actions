@@ -127,9 +127,9 @@ const jobUrl = `${core.getInput('jobUrl')}`
 const parameters = `${core.getInput('parameters')}`
 
 // Prepare call
-var jobUrlBuildTrigger = `${jobUrl.replace(/\/$/, "")}/buildWithParameters`
+var jobUrlBuildTrigger = `${jobUrl.replace(/\/$/, "")}/build`
 if ( parameters !== "" ) {
-    jobUrlBuildTrigger = `${jobUrlBuildTrigger}?${parameters.replace("\n", "&")}`
+    jobUrlBuildTrigger = `${jobUrlBuildTrigger}WithParameters?${parameters.replace("\n", "&")}`
 }
 const basicAuth = {
     username: username,
