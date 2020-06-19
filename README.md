@@ -9,8 +9,7 @@ As a prerequisite you need to have two environment variables available:
 * `JENKINS_USER`: Your Jenkins username
 * `JENKINS_TOKEN`: Your Jenkins API token
 
-This can be achieved by any previous step or other measure to inject credentials into your workflow.
-Subsequently you can integrate your Jenkins job:
+This can be achieved by any previous step or other measure to inject credentials into your workflow. For LeanIX use-cases you can use [this action](https://github.com/leanix/secrets-action). Subsequently you can integrate your Jenkins job:
 
 ```yaml
 - uses: leanix/jenkins-action@master
