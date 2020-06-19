@@ -26,7 +26,7 @@ The following parameters are currently supported:
 * `waitForCompletion`: Actively poll until the job completes with success, error, etc.
 * `parameters`: Linebreak-separated list of key value pairs to be provided as parameters for the job  
 
-See https://github.com/leanix/jenkins-action/blob/master/.github/workflows/main.yml for example usage.
+[Example usage](https://github.com/leanix/jenkins-action/blob/master/.github/workflows/main.yml)
 
 ## Copyright and license
 
