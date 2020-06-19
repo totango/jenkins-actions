@@ -1,6 +1,6 @@
 # Jenkins Action
 
-This [Github action](https://github.com/features/actions) helps you to programmatically trigger Jenkins jobs.
+This Github action helps you to programmatically trigger Jenkins jobs.
 
 ## Use Action
 
