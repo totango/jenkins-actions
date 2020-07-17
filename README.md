@@ -1,4 +1,4 @@
-# Jenkins Action
+# Jenkins Action ![jenkins-action](https://github.com/leanix/jenkins-action/workflows/jenkins-action/badge.svg)
 
 This Github action helps you to programmatically trigger Jenkins jobs.
 
