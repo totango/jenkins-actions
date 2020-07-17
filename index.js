@@ -59,7 +59,13 @@ const basicAuth = {
 core.info(`Triggering job: ${jobBuildUrl}`)
 axios.post(jobBuildUrl, {}, { auth: basicAuth })
     .then((response) => {
-        core.info("Job triggered successfully")
+        core.info("Job triggered")
+        if (response.status != 201 || response.headers.location === undefined ) {
+            core.error(`Status: ${response.status}`)
+            core.error(`Location: ${response.headers.location}`)
+            core.setFailed("Prerequisite for triggered job failed")
+            return
+        }
         const queuedItemUrl = `${response.headers.location}api/json`
         core.info(`Polling startup of job via ${queuedItemUrl}`)
         pollForBuildStart(queuedItemUrl)
