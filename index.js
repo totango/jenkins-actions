@@ -30,8 +30,10 @@ const pollForBuildStart = async (queuedItemUrl) => {
             return axios.post(queuedItemUrl, {}, { auth: basicAuth })
         },
         validate: response => response.data.executable !== undefined,
+        /* Poll every second */
         interval: 1000,
-        maxAttempts: 60
+        /* Poll for 10 minutes */
+        maxAttempts: 60 * 10
     })
 }
 
@@ -41,7 +43,9 @@ const pollForBuildCompletion = async (buildUrl) => {
             return axios.post(buildUrl, {}, { auth: basicAuth })
         },
         validate: response => response.data.result !== null,
+        /* Poll every second */
         interval: 1000,
+        /* Poll for 30 minutes */
         maxAttempts: 60 * 30
     })
 }
