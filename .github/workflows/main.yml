@@ -47,3 +47,12 @@ jobs:
           waitForCompletion: true
           parameters: |
             SLEEP_FIVE_SECONDS=false
+
+      - name: Execute and set build info
+        uses: ./
+        with:
+          jobBuildUrl: https://ci.leanix.net/job/Ping/buildWithParameters
+          waitForCompletion: false
+          parameters: |
+            SLEEP_FIVE_SECONDS=false
+            BUILD_INFO=This is a test
