@@ -42,7 +42,7 @@ const pollForBuildCompletion = async (buildUrl) => {
         fn: async () => {
             return axios.post(buildUrl, {}, { auth: basicAuth })
         },
-        validate: response => response.data.result !== null,
+        validate: response => response.data.result !== undefined,
         /* Poll every second */
         interval: 1000,
         /* Poll for 30 minutes */
