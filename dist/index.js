@@ -1924,7 +1924,7 @@ const pollForBuildCompletion = async (buildUrl) => {
         fn: async () => {
             return axios.post(buildUrl, {}, { auth: basicAuth })
         },
-        validate: response => response.data.result !== undefined,
+        validate: response => !!response.data.result,
         /* Poll every second */
         interval: 1000,
         /* Poll for 30 minutes */
@@ -1959,13 +1959,13 @@ axios.post(jobBuildUrl, {}, { auth: basicAuth })
                 core.info("Job successfully started")
                 core.info(`Build URL is ${response.data.executable.url}`)
                 if (waitForCompletion == "true") {
-                    core.info("Waiting for job completion")
-                    const buildUrl = `${response.data.executable.url}api/json`
+                    const buildUrl = `${response.data.executable.url}api/json?tree=result`
+                    core.info(`Waiting for job completion, polling via ${buildUrl}`)
                     pollForBuildCompletion(buildUrl)
                         .then((response) => {
-                            core.info(`Job finished with result ${response.data.result}`)
+                            core.info(`Job finished with result ${response.data.result} (${response.data.url})`)
                             if (response.data.result != "SUCCESS") {
-                                core.setFailed("Unsuccessful job state")
+                                core.setFailed(`Unsuccessful job state: ${response.data.url}`)
                             }
                         })
                         .catch((error) => {
