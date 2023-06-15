@@ -77,7 +77,14 @@ axios.post(jobBuildUrl, {}, { auth: basicAuth })
                 core.info("Job successfully started")
                 core.info(`Build URL is ${response.data.executable.url}`)
                 if (waitForCompletion == "true") {
-                    const buildUrl = `${response.data.executable.url}api/json?tree=result`
+                    let buildUrl = `${response.data.executable.url}api/json?tree=result`
+                    const internalJenkinsDomain = 'https://jenkins.mgmt.totango.com';
+                    // for GitHub Actions we need to use external Jenkins Domain,
+                    // but the job has inside only internal domain
+                    core.info(`check if buildUrl has not needed domain ${buildUrl.startsWith(internalJenkinsDomain)}`)
+                    if (buildUrl.startsWith(internalJenkinsDomain)) {
+                        buildUrl = buildUrl.replace(internalJenkinsDomain, 'https://jenkins.totango.com');
+                    }
                     core.info(`Waiting for job completion, polling via ${buildUrl}`)
                     pollForBuildCompletion(buildUrl)
                         .then((response) => {
